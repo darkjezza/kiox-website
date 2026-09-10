@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Koin Shop — Kiox Online"
+  description="Spend Koin on vanity cosmetics. Log in on the website to buy for a character."
+>
+  <div id="app">
+    <p style="margin:2rem;font-family:system-ui,sans-serif;color:#a89bb8">Loading shop…</p>
+  </div>
+</BaseLayout>
+
+<script>
+  import { boot } from "../lib/shop";
+  void boot();
+</script>

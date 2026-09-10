@@ -1,0 +1,5 @@
+# Direct /client/ opens the raw Phaser build. Prefer the play page entry.
+# Asset paths under /client/assets/ are unaffected.
+/client /play.html 302
+/client/ /play.html 302
+/client/index.html /play.html 302

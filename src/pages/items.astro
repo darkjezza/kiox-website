@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Items — Kiox Online"
+  description="Kiox Online item catalog — hats, weapons, and prices from the database."
+>
+  <div id="app"></div>
+</BaseLayout>
+
+<script>
+  import { boot } from "../lib/items";
+  boot();
+</script>

@@ -1,0 +1,10 @@
+node_modules
+dist
+.env
+.env.local
+.env.*.local
+.astro
+.wrangler
+scripts/deploy.env
+*.log
+.DS_Store

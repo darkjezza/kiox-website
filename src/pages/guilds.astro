@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Guilds — Kiox Online"
+  description="Kiox Online guilds — live rosters from the database."
+>
+  <div id="app"></div>
+</BaseLayout>
+
+<script>
+  import { boot } from "../lib/guilds";
+  boot();
+</script>

@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Account — Kiox Online"
+  description="Log in, register, or manage your Kiox Online account."
+>
+  <div id="app">
+    <p style="margin:2rem;font-family:system-ui,sans-serif;color:#a89bb8">Loading account…</p>
+  </div>
+</BaseLayout>
+
+<script>
+  import { boot } from "../lib/account";
+  void boot();
+</script>

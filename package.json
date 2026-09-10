@@ -1,0 +1,27 @@
+{
+  "name": "kiox-online-website",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1 --port 4321",
+    "dev:site": "astro dev --host 127.0.0.1 --port 4321",
+    "build": "astro build && node ./scripts/copy-client.mjs",
+    "build:live": "astro build --mode live && node ./scripts/copy-client.mjs live",
+    "build:site": "astro build",
+    "build:client": "node ./scripts/copy-client.mjs",
+    "preview": "astro preview --host 127.0.0.1 --port 4321",
+    "start": "node ./dist/server/entry.mjs",
+    "deploy": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/deploy-scp.ps1 -Live",
+    "deploy:live": "npm run deploy"
+  },
+  "dependencies": {
+    "@astrojs/node": "^11.1.5",
+    "astro": "^7.3.1",
+    "cookie": "^1.1.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2",
+    "wrangler": "^4.0.0"
+  }
+}

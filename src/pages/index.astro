@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Kiox Online"
+  description="Kiox Online — retro multiplayer adventure. Play in your browser, join guilds, and explore."
+>
+  <div id="app"></div>
+</BaseLayout>
+
+<script>
+  import { boot } from "../lib/home";
+  boot();
+</script>
