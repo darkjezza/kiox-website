@@ -8,15 +8,16 @@
     "dev:site": "astro dev --host 127.0.0.1 --port 4321",
     "build": "astro build && node ./scripts/copy-client.mjs",
     "build:live": "astro build --mode live && node ./scripts/copy-client.mjs live",
+    "build:cf": "npm run build:live",
     "build:site": "astro build",
     "build:client": "node ./scripts/copy-client.mjs",
-    "preview": "astro preview --host 127.0.0.1 --port 4321",
-    "start": "node ./dist/server/entry.mjs",
-    "deploy": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/deploy-scp.ps1 -Live",
-    "deploy:live": "npm run deploy"
+    "preview": "npm run build && npx wrangler dev",
+    "preview:live": "npm run build:live && npx wrangler dev",
+    "deploy": "npm run build:live && npx wrangler deploy",
+    "deploy:live": "npm run deploy",
+    "deploy:scp": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/deploy-scp.ps1 -Live"
   },
   "dependencies": {
-    "@astrojs/node": "^11.1.5",
     "astro": "^7.3.1",
     "cookie": "^1.1.1"
   },

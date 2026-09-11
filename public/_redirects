@@ -1,5 +1,7 @@
-# Direct /client/ opens the raw Phaser build. Prefer the play page entry.
-# Asset paths under /client/assets/ are unaffected.
-/client /play.html 302
-/client/ /play.html 302
-/client/index.html /play.html 302
+# Legacy .html paths to clean Astro routes.
+# Do NOT redirect /client/ -- that is the Phaser game (Worker + Static Assets).
+/account.html /account 301
+/items.html /items 301
+/guilds.html /guilds 301
+/play.html /client/ 301
+/index.html / 301
