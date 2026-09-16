@@ -14,6 +14,7 @@ import {
   type KoinShopItem,
   type KoinShopPayload,
 } from "./api/account";
+import { mountKoinPackages } from "./koinStore";
 
 function showFlash(host: HTMLElement, kind: "error" | "success" | "warn", msg: string): void {
   host.replaceChildren();
@@ -109,7 +110,16 @@ function renderShop(root: HTMLElement, data: KoinShopPayload, flash?: { kind: "e
       </div>
       <p class="play-foot muted">Vanity only — does not replace hat stats. Equip cosmetics in-game from inventory.</p>
     </section>
+    <div id="koin-packages"></div>
   `;
+
+  const koinHost = root.querySelector("#koin-packages") as HTMLElement | null;
+  if (koinHost) {
+    void mountKoinPackages(koinHost, data.username, async () => {
+      const next = await fetchKoinShop();
+      renderShop(root, next, { kind: "success", msg: "Koin purchase complete." });
+    });
+  }
 
   root.querySelectorAll<HTMLButtonElement>("[data-buy]").forEach((btn) => {
     btn.addEventListener("click", async () => {
